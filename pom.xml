@@ -25,6 +25,8 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- springboot basic config jar -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

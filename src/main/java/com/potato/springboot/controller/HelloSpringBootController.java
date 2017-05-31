@@ -15,8 +15,7 @@ public class HelloSpringBootController {
 	
 	@RequestMapping("/getUser") 
 	public User getUser() {
-		User user = new User();
-		user.setName("xxx");
+		User user = new User("xxx",1);
 		return user;
 	}
 }

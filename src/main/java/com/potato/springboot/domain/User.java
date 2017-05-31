@@ -22,6 +22,11 @@ public class User implements Serializable{
 	@GeneratedValue
 	private Integer id;
 	
+	public User(String name, Integer id) {
+		super();
+		this.name = name;
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
