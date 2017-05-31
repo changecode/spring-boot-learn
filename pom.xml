@@ -41,6 +41,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- 在开发模式下，支持热更新启动 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -53,6 +54,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- 修改之后立即生效 -->
 				<configuration>
 					<fork>true</fork>
 				</configuration>
