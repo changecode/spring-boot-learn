@@ -27,6 +27,10 @@ public class SpringbootApplicationTests {
 		mvc = MockMvcBuilders.standaloneSetup(new HelloSpringBootController()).build();
 	}
 	
+	/**
+	 * 模拟spring MVC请求
+	 * @throws Exception
+	 */
 	@Test
 	public void getHello() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
@@ -34,5 +38,18 @@ public class SpringbootApplicationTests {
 					.andDo(MockMvcResultHandlers.print())
 					.andReturn();
 	}
+	
+	/**
+	 * 测试获取user返回json
+	 * @throws Exception
+	 */
+	@Test
+	public void getUserJson() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/getUser").accept(MediaType.APPLICATION_JSON))
+					.andExpect(MockMvcResultMatchers.status().isOk())
+					.andDo(MockMvcResultHandlers.print())
+					.andReturn();
+	}
+	
 
 }
