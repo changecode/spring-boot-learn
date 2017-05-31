@@ -3,10 +3,9 @@ package com.potato.springboot;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
@@ -15,9 +14,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.potato.springboot.controller.HelloSpringBootController;
 
-@RunWith(SpringRunner.class)
-@WebAppConfiguration
-@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(SpringbootApplication.class)
 public class SpringbootApplicationTests {
 
 	private MockMvc mvc;
@@ -33,23 +31,24 @@ public class SpringbootApplicationTests {
 	 */
 	@Test
 	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
-					.andExpect(MockMvcResultMatchers.status().isOk())
-					.andDo(MockMvcResultHandlers.print())
-					.andReturn();
+		printResultController("/hello");
+	}
+	
+	@Test
+	public void getUser() throws Exception {
+		printResultController("/getUser");
 	}
 	
 	/**
-	 * 测试获取user返回json
+	 * 模拟请求获取json数据格式的结果
+	 * @param methodName
 	 * @throws Exception
 	 */
-	@Test
-	public void getUserJson() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/getUser").accept(MediaType.APPLICATION_JSON))
-					.andExpect(MockMvcResultMatchers.status().isOk())
-					.andDo(MockMvcResultHandlers.print())
-					.andReturn();
+	private void printResultController(String methodName) throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get(methodName).accept(MediaType.APPLICATION_JSON))
+		.andExpect(MockMvcResultMatchers.status().isOk())
+		.andDo(MockMvcResultHandlers.print())
+		.andReturn();
 	}
 	
-
 }

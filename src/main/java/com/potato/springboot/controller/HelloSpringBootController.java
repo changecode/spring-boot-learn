@@ -13,11 +13,10 @@ public class HelloSpringBootController {
 		return "welcome to learn springboot";
 	}
 	
-	@RequestMapping("/getUser")
+	@RequestMapping("/getUser") 
 	public User getUser() {
 		User user = new User();
 		user.setName("xxx");
-		user.setId("xxx");
 		return user;
 	}
 }
