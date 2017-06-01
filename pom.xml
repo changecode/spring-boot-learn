@@ -25,7 +25,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- springboot basic config jar -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,6 +58,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<!-- redis springboot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-redis</artifactId>
+		</dependency>
+
+		<!-- spring session -->
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
 		</dependency>
 	</dependencies>
 
